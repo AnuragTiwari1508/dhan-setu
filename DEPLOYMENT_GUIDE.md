@@ -72,7 +72,20 @@ This is a complete crypto payment gateway system built with Next.js 15, TypeScri
 1. Set up environment variables on your hosting platform
 2. Configure blockchain RPC endpoints
 3. Set up webhook URLs for payment notifications
-4. Configure database connections if needed
+4. Configure MongoDB Atlas connection:
+   ```
+   MONGODB_URI=mongodb+srv://atlas-sql-68970ae235565c5309bb0126-jx12wc.a.query.mongodb.net/Antim-sewa?ssl=true&authSource=admin
+   DB_NAME=Antim-sewa
+   ```
+5. Configure RazorPay for fiat-to-crypto conversion:
+   ```
+   RAZORPAY_KEY_ID=rzp_test_lEQBZ5fwEMtoMF
+   RAZORPAY_KEY_SECRET=3pji6G59oKXkDtKLSjn5IGMR
+   ```
+6. Configure Google OAuth (if using social login):
+   ```
+   GOOGLE_CLIENT_ID=799085827945-5p3d9ckpuoim2chq5o7c9dd63l3sse9c.apps.googleusercontent.com
+   ```
 
 ## Dependencies to Install
 All required dependencies are listed in package.json:

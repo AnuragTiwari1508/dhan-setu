@@ -22,8 +22,13 @@ import {
   Settings,
   Bell,
   BarChart3,
+  ArrowUpRight,
+  CircleDollarSign,
+  LineChart
 } from "lucide-react"
 import Link from "next/link"
+import { motion } from "framer-motion"
+import { MotionContainer, fadeIn, scaleIn, staggeredContainer, slideIn, bounceIn } from "@/lib/animations"
 
 export default function Dashboard() {
   const [selectedNetwork, setSelectedNetwork] = useState("ethereum")
@@ -35,18 +40,21 @@ export default function Dashboard() {
       value: "$0.00",
       change: "+0%",
       icon: <DollarSign className="h-4 w-4" />,
+      color: "bg-green-500",
     },
     {
       title: "Transactions",
       value: "0",
       change: "+0%",
       icon: <CreditCard className="h-4 w-4" />,
+      color: "bg-blue-500",
     },
     {
       title: "Active Subscriptions",
       value: "0",
       change: "+0%",
       icon: <Users className="h-4 w-4" />,
+      color: "bg-purple-500",
     },
     {
       title: "Success Rate",
