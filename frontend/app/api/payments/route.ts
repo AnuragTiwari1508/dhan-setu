@@ -1,6 +1,7 @@
 // Payment creation API endpoint
 import { NextRequest, NextResponse } from 'next/server';
 import { paymentService } from '@/lib/services/payment';
+import { createBackendPayment, listBackendPayments, getBackendConfig } from '@/lib/api/backend';
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,7 +25,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create payment
+    // If backend configured, proxy to it
+    const { baseUrl } = getBackendConfig();
+    if (baseUrl) {
+      const backendRes = await createBackendPayment({
+        amount,
+        currency,
+        network,
+        description: body.description,
+        metadata: body.metadata
+      });
+      return NextResponse.json({
+        source: 'backend',
+        ...backendRes
+      });
+    }
+
+    // Fallback: local in-memory implementation
     const payment = await paymentService.createPayment({
       amount,
       currency,
@@ -37,7 +54,7 @@ export async function POST(request: NextRequest) {
       metadata: body.metadata
     });
 
-    return NextResponse.json(payment);
+    return NextResponse.json({ source: 'local', ...payment });
 
   } catch (error) {
     console.error('Error creating payment:', error);
@@ -55,21 +72,28 @@ export async function GET(request: NextRequest) {
     const offset = parseInt(searchParams.get('offset') || '0');
     const search = searchParams.get('search');
 
-    let payments;
-    
-    if (search) {
-      payments = paymentService.searchPayments(search);
-    } else {
-      payments = paymentService.getPayments(limit, offset);
+    const { baseUrl } = getBackendConfig();
+    if (baseUrl) {
+      const params = new URLSearchParams();
+      params.set('limit', limit.toString());
+      params.set('offset', offset.toString());
+      if (search) params.set('search', search);
+      try {
+        const backendList = await listBackendPayments(params);
+        return NextResponse.json({ source: 'backend', ...backendList });
+      } catch (e) {
+        console.error('Backend list fallback to local due to error:', e);
+      }
     }
 
+    const payments = search
+      ? paymentService.searchPayments(search)
+      : paymentService.getPayments(limit, offset);
+
     return NextResponse.json({
+      source: 'local',
       payments,
-      pagination: {
-        limit,
-        offset,
-        total: payments.length
-      }
+      pagination: { limit, offset, total: payments.length }
     });
 
   } catch (error) {
