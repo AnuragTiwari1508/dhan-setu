@@ -2,11 +2,17 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    // Use production MongoDB URI for Vercel deployment
-    const mongoUri = process.env.VERCEL || process.env.NODE_ENV === 'production' 
-      ? process.env.MONGODB_URI_PRODUCTION || process.env.MONGODB_URI
-      : process.env.MONGODB_URI || 'mongodb://localhost:27017/dhansetu';
-    
+    if (process.env.SKIP_DB === 'true') {
+      console.log('⚠️  SKIP_DB=true set, skipping MongoDB connection (NOT for production)');
+      return;
+    }
+
+    const mongoUri = process.env.MONGODB_URI || process.env.MONGODB_URI_PRODUCTION || 'mongodb://localhost:27017/dhansetu';
+
+    if (!mongoUri) {
+      console.warn('⚠️  No MongoDB URI found in environment variables. Set MONGODB_URI for production.');
+    }
+
     const conn = await mongoose.connect(mongoUri);
 
     console.log(`🗄️  MongoDB Connected: ${conn.connection.host}`);

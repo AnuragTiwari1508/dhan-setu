@@ -280,6 +280,37 @@ Use the provided curl commands or tools like Postman to test the API endpoints.
 3. Set up webhook URLs
 4. Configure email notifications
 
+### Render Deployment (Recommended for Simplicity)
+
+This repository now includes a `render.yaml` so you can deploy using Render's Blueprint feature.
+
+Quick Steps:
+1. Fork or push this repo to your GitHub.
+2. Sign in to https://render.com and click New + > Blueprint.
+3. Provide the repository URL. Render will detect `render.yaml` and list two services:
+  - `dhansetu-backend` (Express API)
+  - `dhansetu-frontend` (Next.js)
+4. For EACH service, set the required Environment Variables (see `.env.example`). Do NOT commit secrets.
+5. Deploy. After the frontend deploys, copy its URL and set it as FRONTEND_URL (backend) and NEXT_PUBLIC_APP_URL (frontend). Also set NEXT_PUBLIC_BACKEND_URL to the backend URL and redeploy.
+
+Environment Variables to set in Render Dashboard (minimum):
+- Backend: MONGODB_URI, JWT_SECRET, FRONTEND_URL, WEBHOOK_SECRET, chain RPC URLs, PRIVATE_KEY, Razorpay keys (if used), GOOGLE_CLIENT_ID/SECRET.
+- Frontend: NEXT_PUBLIC_APP_URL, NEXT_PUBLIC_BACKEND_URL, WALLET_ENCRYPTION_KEY.
+
+Health Checks:
+- Backend health endpoint: `/health`
+- Frontend sample page: `/api-docs` or root `/`.
+
+Local Testing Before Deploy:
+```
+npm install
+npm run dev
+```
+
+If you need to skip Mongo locally (for quick UI work): set `SKIP_DB=true` in your local `.env` (not in production!).
+
+Contracts: Deploy smart contracts separately (Hardhat) and populate the contract address env vars before enabling on production.
+
 ### Deployment Options
 - **Vercel**: Easy deployment with built-in optimizations
 - **Docker**: Containerized deployment

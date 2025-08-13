@@ -1,0 +1,91 @@
+services:
+  # Backend (Express API)
+  - type: web
+    name: dhansetu-backend
+    env: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install
+    startCommand: node src/server.js
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000 # Render will inject a PORT; this value will be overridden
+      # MongoDB & Auth
+      - key: MONGODB_URI
+        sync: false # Set in Render Dashboard (MongoDB Atlas connection string)
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 24h
+      # Frontend public URL (set after first frontend deploy) for CORS + links
+      - key: FRONTEND_URL
+        sync: false
+      # Blockchain RPC URLs
+      - key: ETHEREUM_RPC_URL
+        sync: false
+      - key: POLYGON_RPC_URL
+        sync: false
+      - key: GOERLI_RPC_URL
+        sync: false
+      - key: MUMBAI_RPC_URL
+        sync: false
+      - key: PRIVATE_KEY
+        sync: false
+      # Contract addresses
+      - key: PAYMENT_CONTRACT_ETHEREUM
+        sync: false
+      - key: PAYMENT_CONTRACT_POLYGON
+        sync: false
+      - key: SUBSCRIPTION_CONTRACT_ETHEREUM
+        sync: false
+      - key: SUBSCRIPTION_CONTRACT_POLYGON
+        sync: false
+      # Razorpay
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: RAZORPAY_WEBHOOK_SECRET
+        sync: false
+      # Google OAuth
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      # Webhook secret
+      - key: WEBHOOK_SECRET
+        sync: false
+      # Optional: skip DB (for preview/test only)
+      - key: SKIP_DB
+        value: "false"
+
+  # Frontend (Next.js)
+  - type: web
+    name: dhansetu-frontend
+    env: node
+    rootDir: frontend
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    autoDeploy: true
+    healthCheckPath: /api-docs # Any existing page; adjust if needed
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_APP_URL
+        sync: false # Set to the Render URL of this frontend (after first deploy)
+      - key: NEXT_PUBLIC_BACKEND_URL
+        sync: false # Set to https URL of dhansetu-backend service
+      - key: WALLET_ENCRYPTION_KEY
+        sync: false
+      # Mirror any public chain config needed client-side (avoid secrets)
+      - key: NEXT_PUBLIC_SUPPORTED_NETWORKS
+        value: "ethereum,polygon"
+
+  # (Optional) Contracts deployment script as a cron job or background service could be added later.
+
+# To use: In Render dashboard choose 'New + -> Blueprint' and select this repo. Render reads render.yaml.

@@ -96,8 +96,8 @@ app.use('*', (req, res) => {
   });
 });
 
-// Start server only if not in serverless environment and not already loaded as module
-if (require.main === module && process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+// Start server (Render provides PORT env). Avoid double start in tests.
+if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`🚀 DhanSetu Backend running on port ${PORT}`);
     console.log(`📊 Health check: http://localhost:${PORT}/health`);
