@@ -1,121 +1,127 @@
-# 🚀 DhanSetu Gateway - Complete Crypto Payment System
+# 🚀 DhanSetu Gateway - Complete Crypto Payment System  
 
-<div align="center">
-<img width="1915" height="846" alt="image" src="https://github.com/user-attachments/assets/2e465ce4-f985-4142-b17f-01037e2a951b" />
+<div align="center">  
+  <img width="900" alt="DhanSetu Logo" src="https://github.com/user-attachments/assets/2e465ce4-f985-4142-b17f-01037e2a951b" />  
+</div>  
 
+---
 
+## 🌟 Overview  
+**DhanSetu Gateway** is a **comprehensive crypto payment system** built with **Next.js 15, TypeScript**, and **multi-blockchain support**. It enables modern crypto commerce with **secure payments, subscriptions, and invoicing** — all in one platform.  
 
-## 🌟 Overview
+👉 **Live Demo**: [http://localhost:3000](http://localhost:3000) (when running locally)  
 
-DhanSetu Gateway is a comprehensive crypto payment gateway system built with Next.js 15, TypeScript, and multi-blockchain support. It provides everything you need for modern crypto commerce, from simple integrations to complex billing automation.
+---
 
-**🎯 Live Demo**: [View Application](http://localhost:3000) (when running locally)
+## ✨ Key Features  
 
-## ✨ Key Features
+### 🔗 Multi-Chain Support  
+- **6 Blockchains**: Ethereum, Polygon, BSC, Arbitrum, Optimism, Solana  
+- **Token Support**: Native currencies + ERC20/BEP20/SPL tokens  
+- **Dynamic Network Switching**  
 
-### 🔗 Multi-Chain Support
-- **6 Blockchains**: Ethereum, Polygon, BSC, Arbitrum, Optimism, Solana
-- **Token Support**: Native currencies + ERC20/BEP20/SPL tokens
-- **Network Switching**: Dynamic provider selection
+### 💰 Payment Processing  
+- **QR Code Generation**: Instant payment links  
+- **Real-Time Monitoring**: Track confirmations  
+- **Webhook Support**: Automated merchant notifications  
+- **Invoice System**: Professional payment management  
 
-### 💰 Payment Processing
-- **QR Code Generation**: Instant payment links
-- **Real-time Monitoring**: Blockchain confirmation tracking
-- **Webhook Support**: Automated merchant notifications
-- **Invoice System**: Professional payment management
+### 🔄 Subscription Engine  
+- **Recurring Billing**: Cron-based automation  
+- **Plan Management**: Flexible tiers & trial periods  
+- **Analytics**: Track MRR & subscriber metrics  
 
-### 🔄 Subscription Engine
-- **Recurring Billing**: Automated cron-based processing
-- **Plan Management**: Flexible subscription tiers
-- **Trial Periods**: Free trial support
-- **Analytics**: MRR tracking and metrics
+### 🔐 Security  
+- **HD Wallets**: BIP39-based generation  
+- **AES-256 Encryption**: For sensitive data  
+- **JWT Authentication**: Secure API access  
+- **HMAC Webhook Verification**  
 
-### 🔐 Security & Encryption
-- **HD Wallet**: BIP39 mnemonic-based wallet generation
-- **Encryption**: AES-256 for sensitive data
-- **JWT Authentication**: Secure API access
-- **Webhook Verification**: HMAC signature validation
+---
 
-## 🏗️ Architecture
+## 🏗️ Architecture  
 
-### Backend Services
-```
+### **Backend Services**  
 lib/services/
-├── blockchain.ts     # Multi-chain blockchain integration
-├── payment.ts        # Payment processing service
-├── subscription.ts   # Recurring payments service
-└── wallet.ts         # HD wallet management
-```
+├── blockchain.ts # Multi-chain blockchain integration
+├── payment.ts # Payment processing service
+├── subscription.ts # Recurring payments service
+└── wallet.ts # HD wallet management
 
-### API Endpoints
-```
+markdown
+Copy
+Edit
+
+### **API Endpoints**  
 /api/
-├── payments/         # Payment management
-├── subscriptions/    # Subscription handling
-├── wallets/          # Wallet operations
-└── chains/           # Blockchain queries
-```
+├── payments/ # Payment management
+├── subscriptions/ # Subscription handling
+├── wallets/ # Wallet operations
+└── chains/ # Blockchain queries
 
-### Frontend Pages
-```
+markdown
+Copy
+Edit
+
+### **Frontend Pages**  
 app/
-├── dashboard/        # Analytics dashboard
-├── payments/create/  # Payment creation
-├── pay/[id]/        # Payment processing
-├── subscriptions/    # Subscription management
-└── api-docs/        # API documentation
-```
+├── dashboard/ # Analytics dashboard
+├── payments/create/ # Payment creation
+├── pay/[id]/ # Payment processing
+├── subscriptions/ # Subscription management
+└── api-docs/ # API documentation
 
-## 🚀 Quick Start
+yaml
+Copy
+Edit
 
-### Prerequisites
-- Node.js 18+
-- Git
-- A crypto wallet for testing
+---
 
-### Installation
+## 🚀 Quick Start  
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/AnuragTiwari1508/dhan-setu.git
-   cd dhan-setu
-   ```
+### **Prerequisites**  
+- Node.js 18+  
+- Git  
+- A crypto wallet for testing  
 
-2. **Install dependencies**
-   ```bash
-   npm install --legacy-peer-deps
-   ```
-
-3. **Set up environment variables**
-   ```bash
-   cp .env.example .env.local
-   ```
-   
-   Edit `.env.local` with your configuration:
-   ```env
-   # Blockchain RPC URLs
-   ETHEREUM_RPC_URL=https://mainnet.infura.io/v3/YOUR_KEY
-   POLYGON_RPC_URL=https://polygon-mainnet.infura.io/v3/YOUR_KEY
-   BSC_RPC_URL=https://bsc-dataseed.binance.org/
-   
-   # Security
-   JWT_SECRET=your-super-secret-jwt-key
-   ENCRYPTION_KEY=your-32-character-encryption-key
-   WEBHOOK_SECRET=your-webhook-secret-key
-   ```
-
-4. **Run the development server**
-   ```bash
-   npm run dev
-   ```
-
-5. **Open your browser**
-   Visit [http://localhost:3000](http://localhost:3000)
-
-## 📊 Usage Examples
-
-### Create a Payment
+### **Installation**  
 ```bash
+# 1. Clone the repository
+git clone https://github.com/AnuragTiwari1508/dhan-setu.git
+cd dhan-setu
+
+# 2. Install dependencies
+npm install --legacy-peer-deps
+
+# 3. Setup environment variables
+cp .env.example .env.local
+Edit .env.local with your configuration:
+
+env
+Copy
+Edit
+# Blockchain RPC URLs
+ETHEREUM_RPC_URL=https://mainnet.infura.io/v3/YOUR_KEY
+POLYGON_RPC_URL=https://polygon-mainnet.infura.io/v3/YOUR_KEY
+BSC_RPC_URL=https://bsc-dataseed.binance.org/
+
+# Security
+JWT_SECRET=your-super-secret-jwt-key
+ENCRYPTION_KEY=your-32-character-encryption-key
+WEBHOOK_SECRET=your-webhook-secret-key
+bash
+Copy
+Edit
+# 4. Run development server
+npm run dev
+
+# 5. Open in browser
+http://localhost:3000
+📊 Usage Examples
+✅ Create a Payment
+bash
+Copy
+Edit
 curl -X POST http://localhost:3000/api/payments \
   -H "Content-Type: application/json" \
   -d '{
@@ -127,15 +133,15 @@ curl -X POST http://localhost:3000/api/payments \
       "customerEmail": "customer@example.com"
     }
   }'
-```
-
-### Check Payment Status
-```bash
+✅ Check Payment Status
+bash
+Copy
+Edit
 curl http://localhost:3000/api/payments/PAYMENT_ID
-```
-
-### Create a Subscription Plan
-```bash
+✅ Create a Subscription Plan
+bash
+Copy
+Edit
 curl -X POST http://localhost:3000/api/subscriptions/plans \
   -H "Content-Type: application/json" \
   -d '{
@@ -144,220 +150,175 @@ curl -X POST http://localhost:3000/api/subscriptions/plans \
     "currency": "USDC",
     "interval": "monthly"
   }'
-```
+🔧 API Documentation
+Payment Endpoints
+POST /api/payments → Create a payment
 
-## 🔧 API Documentation
+GET /api/payments → List payments
 
-### Payment Endpoints
-- `POST /api/payments` - Create a new payment
-- `GET /api/payments` - List all payments
-- `GET /api/payments/[id]` - Get payment details
-- `PATCH /api/payments/[id]` - Update payment
-- `GET /api/payments/stats` - Payment statistics
+GET /api/payments/[id] → Get payment details
 
-### Subscription Endpoints
-- `POST /api/subscriptions` - Create subscription
-- `GET /api/subscriptions` - List subscriptions
-- `GET /api/subscriptions/[id]` - Get subscription details
-- `PATCH /api/subscriptions/[id]` - Update subscription
-- `POST /api/subscriptions/plans` - Create plan
-- `GET /api/subscriptions/plans` - List plans
-- `GET /api/subscriptions/stats` - Subscription statistics
+PATCH /api/payments/[id] → Update payment
 
-### Wallet Endpoints
-- `POST /api/wallets` - Create new wallet
-- `GET /api/wallets/[id]` - Get wallet details
-- `POST /api/wallets/[id]/sign` - Sign transaction
-- `GET /api/wallets/[id]/balance` - Get wallet balance
+GET /api/payments/stats → Payment statistics
 
-### Blockchain Endpoints
-- `GET /api/chains` - List supported blockchains
-- `GET /api/chains/[network]` - Get network information
-- `POST /api/chains/[network]/tx` - Send transaction
+Subscription Endpoints
+POST /api/subscriptions → Create subscription
 
-## 🛠️ Technology Stack
+GET /api/subscriptions → List subscriptions
 
-### Frontend
-- **Next.js 15.2.4** - React framework
-- **React 19** - UI library
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Styling
-- **shadcn/ui** - UI components
+GET /api/subscriptions/[id] → Get details
 
-### Backend
-- **Node.js** - Runtime
-- **Ethers.js** - Ethereum interaction
-- **Solana Web3.js** - Solana interaction
-- **BIP39** - Mnemonic generation
-- **bcryptjs** - Encryption
-- **JWT** - Authentication
+PATCH /api/subscriptions/[id] → Update subscription
 
-### Blockchain Support
-- **Ethereum** - ETH and ERC20 tokens
-- **Polygon** - MATIC and tokens
-- **BSC** - BNB and BEP20 tokens
-- **Arbitrum** - Layer 2 scaling
-- **Optimism** - Layer 2 scaling
-- **Solana** - SOL and SPL tokens
+POST /api/subscriptions/plans → Create plan
 
-## 🌍 Multi-Chain Configuration
+GET /api/subscriptions/plans → List plans
 
-The system supports multiple blockchain networks out of the box:
+GET /api/subscriptions/stats → Subscription stats
 
-```typescript
-const SUPPORTED_NETWORKS = {
-  ethereum: {
-    name: 'Ethereum',
-    chainId: 1,
-    currency: 'ETH',
-    rpcUrl: process.env.ETHEREUM_RPC_URL
-  },
-  polygon: {
-    name: 'Polygon',
-    chainId: 137,
-    currency: 'MATIC',
-    rpcUrl: process.env.POLYGON_RPC_URL
-  },
-  bsc: {
-    name: 'Binance Smart Chain',
-    chainId: 56,
-    currency: 'BNB',
-    rpcUrl: process.env.BSC_RPC_URL
-  },
-  // ... more networks
-}
-```
+Wallet Endpoints
+POST /api/wallets → Create wallet
 
-## 🔒 Security Features
+GET /api/wallets/[id] → Wallet details
 
-- **HD Wallet Generation**: BIP39 mnemonic-based wallet creation
-- **Encrypted Storage**: AES-256 encryption for sensitive data
-- **JWT Authentication**: Secure API access control
-- **Webhook Verification**: HMAC signature validation
-- **Input Validation**: Comprehensive request validation
-- **Rate Limiting**: API endpoint protection
+POST /api/wallets/[id]/sign → Sign transaction
 
-## 📈 Analytics & Monitoring
+GET /api/wallets/[id]/balance → Wallet balance
 
-### Dashboard Features
-- Real-time payment statistics
-- Transaction monitoring
-- Revenue analytics
-- Subscription metrics
-- Network health status
+Blockchain Endpoints
+GET /api/chains → Supported chains
 
-### Webhook Notifications
-```typescript
-// Example webhook payload
-{
-  "event": "payment.confirmed",
-  "data": {
-    "id": "pay_123",
-    "amount": "0.1",
-    "currency": "ETH",
-    "status": "confirmed",
-    "transactionHash": "0x...",
-    "timestamp": "2025-08-10T20:03:15Z"
-  }
-}
-```
+GET /api/chains/[network] → Network details
 
-## 🧪 Testing
+POST /api/chains/[network]/tx → Send transaction
 
-### Manual Testing
-1. Visit the dashboard at `/dashboard`
-2. Create a payment at `/payments/create`
-3. Process payment at `/pay/[id]`
-4. Manage subscriptions at `/subscriptions`
+🛠️ Technology Stack
+Frontend
 
-### API Testing
-Use the provided curl commands or tools like Postman to test the API endpoints.
+Next.js 15.2.4
 
-## 🚀 Deployment
+React 19
 
-### Environment Setup
-1. Set up production environment variables
-2. Configure blockchain RPC endpoints
-3. Set up webhook URLs
-4. Configure email notifications
+TypeScript
 
-### Render Deployment (Recommended for Simplicity)
+Tailwind CSS
 
-This repository now includes a `render.yaml` so you can deploy using Render's Blueprint feature.
+shadcn/ui
 
-Quick Steps:
-1. Fork or push this repo to your GitHub.
-2. Sign in to https://render.com and click New + > Blueprint.
-3. Provide the repository URL. Render will detect `render.yaml` and list two services:
-  - `dhansetu-backend` (Express API)
-  - `dhansetu-frontend` (Next.js)
-4. For EACH service, set the required Environment Variables (see `.env.example`). Do NOT commit secrets.
-5. Deploy. After the frontend deploys, copy its URL and set it as FRONTEND_URL (backend) and NEXT_PUBLIC_APP_URL (frontend). Also set NEXT_PUBLIC_BACKEND_URL to the backend URL and redeploy.
+Backend
 
-Environment Variables to set in Render Dashboard (minimum):
-- Backend: MONGODB_URI, JWT_SECRET, FRONTEND_URL, WEBHOOK_SECRET, chain RPC URLs, PRIVATE_KEY, Razorpay keys (if used), GOOGLE_CLIENT_ID/SECRET.
-- Frontend: NEXT_PUBLIC_APP_URL, NEXT_PUBLIC_BACKEND_URL, WALLET_ENCRYPTION_KEY.
+Node.js
 
-Health Checks:
-- Backend health endpoint: `/health`
-- Frontend sample page: `/api-docs` or root `/`.
+Ethers.js / Solana Web3.js
 
-Local Testing Before Deploy:
-```
-npm install
-npm run dev
-```
+BIP39, bcryptjs
 
-If you need to skip Mongo locally (for quick UI work): set `SKIP_DB=true` in your local `.env` (not in production!).
+JWT
 
-Contracts: Deploy smart contracts separately (Hardhat) and populate the contract address env vars before enabling on production.
+Supported Blockchains
 
-### Deployment Options
-- **Vercel**: Easy deployment with built-in optimizations
-- **Docker**: Containerized deployment
-- **Traditional hosting**: VPS or dedicated servers
+Ethereum (ETH + ERC20)
 
-## 🤝 Contributing
+Polygon (MATIC)
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+BSC (BNB + BEP20)
 
-## 📝 License
+Arbitrum
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Optimism
 
-## 🙏 Acknowledgments
+Solana (SOL + SPL tokens)
 
-This project integrates concepts and code from several open-source projects:
-- **BitCart** - Payment processing architecture
-- **Polygon P2P Payment** - Multi-chain concepts
-- **Crypto-Payment-API** - API design patterns
-- **CoindPay** - Gateway architecture
-- **Spheron Subscriptions** - Smart contract subscriptions
-- **BitDiem Recur** - Recurring payment processing
-- **ethereum-hdwallet** - HD wallet implementation
-- **Hummingbot Gateway** - Blockchain provider management
+🔒 Security Features
+HD Wallet generation (BIP39)
 
-## 📞 Support
+AES-256 encrypted storage
 
-For support, email anuragtiwari1508@gmail.com or open an issue in the GitHub repository.
+JWT-based API access
 
-## 🔮 Roadmap
+HMAC webhook verification
 
-- [ ] Advanced analytics dashboard
-- [ ] Mobile app support
-- [ ] More blockchain integrations
-- [ ] Advanced smart contract features
-- [ ] Merchant tools and APIs
-- [ ] Multi-language support
+Request validation & rate limiting
 
----
+📈 Analytics & Monitoring
+Real-time payment stats
 
-<div align="center">
-  <strong>Built with ❤️ by Anurag Tiwari</strong><br>
-  <a href="https://github.com/AnuragTiwari1508">GitHub</a> •
-  <a href="mailto:anuragtiwari1508@gmail.com">Email</a>
-</div>
+Transaction tracking
+
+Revenue & MRR analytics
+
+Subscription metrics
+
+Network health status
+
+🚀 Deployment
+Render Deployment (Recommended)
+Includes render.yaml for 1-click deployment.
+
+Steps:
+
+Fork repo → Push to GitHub
+
+On Render: New + > Blueprint → Select repo
+
+Configure environment variables
+
+Deploy frontend + backend
+
+Health Checks
+
+Backend → /health
+
+Frontend → /api-docs or /
+
+Other options: Vercel, Docker, VPS
+
+🤝 Contributing
+bash
+Copy
+Edit
+# 1. Fork repo
+# 2. Create feature branch
+git checkout -b feature/my-feature
+# 3. Commit changes
+git commit -m "Added new feature"
+# 4. Push branch
+git push origin feature/my-feature
+# 5. Open Pull Request
+📝 License
+Licensed under MIT – see LICENSE.
+
+🙏 Acknowledgments
+BitCart – Payment processing architecture
+
+Polygon P2P Payment – Multi-chain design
+
+Crypto-Payment-API – API patterns
+
+CoindPay – Gateway model
+
+Spheron Subscriptions – Smart contracts
+
+ethereum-hdwallet – Wallet implementation
+
+Hummingbot Gateway – Blockchain provider mgmt
+
+📞 Support
+📧 Email: anuragtiwari1508@gmail.com
+🐙 GitHub: AnuragTiwari1508
+
+🔮 Roadmap
+ Advanced analytics dashboard
+
+ Mobile app support
+
+ More blockchain integrations
+
+ Smart contract upgrades
+
+ Merchant APIs & tools
+
+ Multi-language support
+
+<div align="center"> <strong>Built with ❤️ by Anurag Tiwari</strong> <br> <a href="https://github.com/AnuragTiwari1508">GitHub</a> • <a href="mailto:anuragtiwari1508@gmail.com">Email</a> </div> ```
