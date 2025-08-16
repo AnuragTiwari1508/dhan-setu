@@ -319,16 +319,5 @@ Hummingbot Gateway – Blockchain provider mgmt
 
  Merchant APIs & tools
 
- Multi-language support
-## 🌐 Multi-language Support  
-Our project supports multiple languages to ensure accessibility and usability across diverse users worldwide.  
 
----
-
-<div align="center">  
-  <strong>Built with ❤️ by Anurag Tiwari</strong>  
-  <br>  
-  <a href="https://github.com/AnuragTiwari1508">GitHub</a> •  
-  <a href="mailto:anuragtiwari1508@gmail.com">Email</a>  
-</div>
 
