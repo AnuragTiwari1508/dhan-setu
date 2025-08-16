@@ -1,10 +1,9 @@
 # 🚀 DhanSetu Gateway - Complete Crypto Payment System
 
 <div align="center">
-  <img src="<img width="1915" height="846" alt="image" src="https://github.com/user-attachments/assets/2b3593ff-fe7f-44b2-bd6b-eceb32532411" />
-" />
-" alt="DhanSetu Gateway Homepage" width="100%" />
-</div>
+<img width="1915" height="846" alt="image" src="https://github.com/user-attachments/assets/2e465ce4-f985-4142-b17f-01037e2a951b" />
+
+
 
 ## 🌟 Overview
 
